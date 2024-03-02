@@ -11,3 +11,9 @@ Artist.hasMany(Album);
 
 Song.belongsTo(Album);
 Album.hasMany(Song);
+
+Artist.belongsToMany(Song, { through: "artists_songs" });
+Song.belongsToMany(Artist, { through: "artists_songs" });
+
+Genre.belongsToMany(Song, { through: 'genres_songs' });
+Song.belongsToMany(Genre, { through: 'genres_songs' });
